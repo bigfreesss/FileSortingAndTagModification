@@ -1,9 +1,9 @@
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace WindowsFormsApplication2.Services
 {
@@ -58,11 +58,9 @@ namespace WindowsFormsApplication2.Services
 
                 // 统一 imagePath 并清理 imageData
                 data.imagePath = "rgb.png";
-                // data.imageData = null; // 如需要可清空
 
                 if (string.IsNullOrEmpty(afterLabel))
                 {
-                    // 提纯：保留 label == frontLabel 的 shapes
                     var shapesCopy = data.shapes?.Where(s => string.Equals(s.label, frontLabel, StringComparison.Ordinal)).ToList() ?? new List<Shape>();
                     if (shapesCopy.Count < 1)
                     {
@@ -73,7 +71,6 @@ namespace WindowsFormsApplication2.Services
                 }
                 else
                 {
-                    // 重命名：当 frontLabel 为空则全部改名，否则只替换匹配项
                     if (data.shapes != null)
                     {
                         foreach (var s in data.shapes)
@@ -84,7 +81,6 @@ namespace WindowsFormsApplication2.Services
                     }
                 }
 
-                // 计算相对路径并写入 output 文件夹
                 inputRoot = FileHelper.EnsureTrailingSeparator(inputRoot ?? "");
                 string relative = FileHelper.SafeRelativePath(file.FullName, inputRoot);
                 string outBase = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "output");

@@ -13,10 +13,13 @@ namespace WindowsFormsApplication2.Services
             if (string.IsNullOrEmpty(path) || !Directory.Exists(path))
                 return result;
 
-            var extFilter = (extNames ?? "").Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)
-                                            .Select(s => s.Trim().ToLower())
-                                            .Where(s => !string.IsNullOrEmpty(s))
-                                            .ToHashSet();
+            // 在 .NET Framework 4.8 中不保证有 ToHashSet()，改为 HashSet 构造
+            var extFilterList = (extNames ?? "")
+                                .Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries)
+                                .Select(s => s.Trim().ToLower())
+                                .Where(s => !string.IsNullOrEmpty(s))
+                                .ToList();
+            var extFilter = new HashSet<string>(extFilterList);
 
             void scan(string p)
             {
