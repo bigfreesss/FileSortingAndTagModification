@@ -47,16 +47,34 @@
             this.textBox_FileSorting = new System.Windows.Forms.TextBox();
             this.button_FileSorting = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button_browseJson = new System.Windows.Forms.Button();
+            this.button_browseFileSorting = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox_jsonPath
             // 
             this.textBox_jsonPath.Location = new System.Drawing.Point(89, 46);
             this.textBox_jsonPath.Name = "textBox_jsonPath";
-            this.textBox_jsonPath.Size = new System.Drawing.Size(401, 21);
+            this.textBox_jsonPath.Size = new System.Drawing.Size(326, 21);
             this.textBox_jsonPath.TabIndex = 1;
+            // 
+            // button_browseJson
+            // 
+            this.button_browseJson.Location = new System.Drawing.Point(421, 44);
+            this.button_browseJson.Name = "button_browseJson";
+            this.button_browseJson.Size = new System.Drawing.Size(69, 23);
+            this.button_browseJson.TabIndex = 1;
+            this.button_browseJson.Text = "浏览...";
+            this.button_browseJson.UseVisualStyleBackColor = true;
+            this.button_browseJson.Click += new System.EventHandler(this.button_browseJson_Click);
             // 
             // textBox_frontLabel
             // 
@@ -149,9 +167,11 @@
             this.groupBox1.Controls.Add(this.button_FileSorting_AllSubdirectories);
             this.groupBox1.Controls.Add(this.textBox_FileSorting);
             this.groupBox1.Controls.Add(this.button_FileSorting);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Controls.Add(this.button_browseFileSorting);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(498, 124);
+            this.groupBox1.Size = new System.Drawing.Size(503, 176);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "文件排序";
@@ -208,8 +228,18 @@
             // 
             this.textBox_FileSorting.Location = new System.Drawing.Point(6, 20);
             this.textBox_FileSorting.Name = "textBox_FileSorting";
-            this.textBox_FileSorting.Size = new System.Drawing.Size(484, 21);
+            this.textBox_FileSorting.Size = new System.Drawing.Size(410, 21);
             this.textBox_FileSorting.TabIndex = 8;
+            // 
+            // button_browseFileSorting
+            // 
+            this.button_browseFileSorting.Location = new System.Drawing.Point(422, 18);
+            this.button_browseFileSorting.Name = "button_browseFileSorting";
+            this.button_browseFileSorting.Size = new System.Drawing.Size(68, 23);
+            this.button_browseFileSorting.TabIndex = 14;
+            this.button_browseFileSorting.Text = "浏览...";
+            this.button_browseFileSorting.UseVisualStyleBackColor = true;
+            this.button_browseFileSorting.Click += new System.EventHandler(this.button_browseFileSorting_Click);
             // 
             // button_FileSorting
             // 
@@ -233,27 +263,64 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 182);
+            this.groupBox2.Controls.Add(this.button_browseJson);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(498, 173);
+            this.groupBox2.Size = new System.Drawing.Size(503, 176);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "json修改标签";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(517, 208);
+            this.tabControl1.TabIndex = 14;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(509, 182);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "文件排序";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(509, 182);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "json修改标签";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 367);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(517, 208);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "深度学习标定文件修改（需要是子文件夹形式）20250324";
+            this.Text = "深度学习标定文件修改（需要是子文件夹形式） - 新界面";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -278,6 +345,11 @@
         private System.Windows.Forms.TextBox textBox_FileSorting;
         private System.Windows.Forms.Button button_FileSorting;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button button_browseJson;
+        private System.Windows.Forms.Button button_browseFileSorting;
     }
 }
 
